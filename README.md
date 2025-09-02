@@ -11,7 +11,7 @@ Built with a scalable full-stack architecture and deployed on AWS, Flowboard del
 **Frontend**
 
 - [Next.js](https://nextjs.org/) – React framework for building fast, scalable web apps
-- Tailwind CSS (optional mention if you use it) – styling and UI components
+- Tailwind CSS – styling and UI components
 
 **Backend**
 
