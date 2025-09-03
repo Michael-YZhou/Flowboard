@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "@/components/Navbar/Navbar";
 
 type Props = {
   children: React.ReactNode;
@@ -10,8 +11,7 @@ const DashboardWrapper = ({ children }: Props) => {
       {/* sidebar */}
       sidebar
       <main className="dark:bg-dark-bg flex w-full flex-col bg-gray-50 md:pl-64">
-        {/* navbar */}
-        navbar
+        <Navbar />
         {children}
       </main>
     </div>
