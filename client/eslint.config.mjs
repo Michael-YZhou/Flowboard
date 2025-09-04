@@ -19,6 +19,19 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+    rules: {
+      // 👇 Add this line to allow explicit any
+      "@typescript-eslint/no-explicit-any": "off",
+      // Relax no-unused-vars
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_", // allow unused function args if prefixed with _
+          varsIgnorePattern: "^_", // allow unused vars if prefixed with _
+          caughtErrorsIgnorePattern: "^_", // allow unused catch(err) if named _err
+        },
+      ],
+    },
   },
 ];
 
