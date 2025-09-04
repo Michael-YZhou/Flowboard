@@ -1,17 +1,9 @@
-import { useRef } from "react";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import {
-  TypedUseSelectorHook,
-  useDispatch,
-  useSelector,
-  Provider,
-} from "react-redux";
+import { useDispatch, useSelector, useStore } from "react-redux";
 import globalReducer from "@/store/slice";
 import { api } from "@/store/api";
-import { setupListeners } from "@reduxjs/toolkit/query";
 
 import {
-  persistStore,
   persistReducer,
   FLUSH,
   REHYDRATE,
@@ -20,7 +12,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { PersistGate } from "redux-persist/integration/react";
+
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
 /* REDUX PERSISTENCE */
@@ -71,27 +63,30 @@ export const makeStore = () => {
 export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<AppStore["getState"]>;
 export type AppDispatch = AppStore["dispatch"];
-export const useAppDispatch = () => useDispatch<AppDispatch>();
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+/* REDUX HOOKS */
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
+export const useAppSelector = useSelector.withTypes<RootState>();
+export const useAppStore = useStore.withTypes<AppStore>();
 
 /* PROVIDER */
-export default function StoreProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const storeRef = useRef<AppStore>();
-  if (!storeRef.current) {
-    storeRef.current = makeStore();
-    setupListeners(storeRef.current.dispatch);
-  }
-  const persistor = persistStore(storeRef.current);
+// export default function StoreProvider({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   const storeRef = useRef<AppStore>();
+//   if (!storeRef.current) {
+//     storeRef.current = makeStore();
+//     setupListeners(storeRef.current.dispatch);
+//   }
+//   const persistor = persistStore(storeRef.current);
 
-  return (
-    <Provider store={storeRef.current}>
-      <PersistGate loading={null} persistor={persistor}>
-        {children}
-      </PersistGate>
-    </Provider>
-  );
-}
+//   return (
+//     <Provider store={storeRef.current}>
+//       <PersistGate loading={null} persistor={persistor}>
+//         {children}
+//       </PersistGate>
+//     </Provider>
+//   );
+// }
