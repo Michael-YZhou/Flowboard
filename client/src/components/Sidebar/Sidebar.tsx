@@ -2,21 +2,49 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Home, LockIcon } from "lucide-react";
+import {
+  Briefcase,
+  Home,
+  LockIcon,
+  Search,
+  Settings,
+  User,
+  Users,
+  X,
+} from "lucide-react";
 import SidebarLink from "./SidebarLink/SidebarLink";
+import { useAppDispatch, useAppSelector } from "@/store/store";
+import { setIsSidebarCollapsed } from "@/store/slice";
 
 const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
   const [showPriority, setShowPriority] = useState(true);
 
+  const dispatch = useAppDispatch();
+  const { isSidebarCollapsed } = useAppSelector((state) => state.global);
+
   return (
-    <div className="dark:bg-dark-black fixed z-40 flex h-full w-64 flex-col justify-between overflow-y-auto bg-white shadow-xl transition-all duration-300">
+    <div
+      className={`dark:bg-dark-black fixed z-40 flex h-full flex-col justify-between overflow-y-auto bg-white shadow-xl transition-all duration-300 ${isSidebarCollapsed ? "w-0" : "w-64"}`}
+    >
       <div className="flex h-full w-full flex-col justify-start dark:bg-black">
         {/* TOP LOGO */}
-        <div className="z-50 flex min-h-[56px] w-64 items-center justify-between bg-white px-6 pt-3 dark:bg-black">
-          <div className="text-xl font-bold text-gray-800 dark:text-white">
+        <div
+          className={`z-50 flex min-h-[56px] w-64 items-center justify-between bg-white px-6 pt-3 dark:bg-black`}
+        >
+          <div className={"text-xl font-bold text-gray-800 dark:text-white"}>
             Flowboard
           </div>
+          {!isSidebarCollapsed && (
+            <button
+              className="py-3"
+              onClick={() =>
+                dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))
+              }
+            >
+              <X className="h-6 w-6 cursor-pointer text-gray-800 hover:text-gray-500 dark:text-white" />
+            </button>
+          )}
         </div>
         {/* TEAM */}
         <div className="flex items-center gap-5 border-y-[1.5px] border-gray-200 px-8 py-4 dark:border-gray-700">
@@ -35,7 +63,12 @@ const Sidebar = () => {
         </div>
         {/* NAVBAR LINKS */}
         <nav className="z-10 w-full">
-          <SidebarLink href="/" icon={Home} label="Home" />
+          <SidebarLink icon={Home} label="Home" href="/" />
+          <SidebarLink icon={Briefcase} label="Timeline" href="/timeline" />
+          <SidebarLink icon={Search} label="Search" href="/search" />
+          <SidebarLink icon={Settings} label="Settings" href="/settings" />
+          <SidebarLink icon={User} label="Users" href="/users" />
+          <SidebarLink icon={Users} label="Teams" href="/teams" />
         </nav>
       </div>
     </div>

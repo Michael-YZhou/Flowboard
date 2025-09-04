@@ -15,7 +15,7 @@ const Navbar = () => {
       {/* Search Bar */}
       <div className="flex items-center gap-8">
         {/* Sidebar Toggle Button */}
-        {!isSidebarCollapsed ? null : (
+        {isSidebarCollapsed && (
           <button
             onClick={() => dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))}
           >
@@ -39,21 +39,21 @@ const Navbar = () => {
         {/* Dark Mode Toggle Icon */}
         <button
           onClick={() => dispatch(setIsDarkMode(!isDarkMode))}
-          className={`rounded p-2 ${isDarkMode ? "dark:hover:bg-gray-700" : "hover:bg-gray-100"}`}
+          className={
+            "cursor-pointer rounded p-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+          }
         >
           {isDarkMode ? (
-            <Moon className="h-6 w-6 cursor-pointer dark:text-white" />
+            <Moon className="h-6 w-6" />
           ) : (
-            <Sun className="h-6 w-6 cursor-pointer dark:text-white" />
+            <Sun className="h-6 w-6" />
           )}
         </button>
         <Link
           href="/settings"
-          className="h-min w-min rounded p-2 hover:bg-gray-100"
+          className="rounded p-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
         >
-          <Settings
-            className={`h-min w-min rounded p-2 ${isDarkMode ? "dark:hover:bg-gray-700" : "bg-hover-gray-100"}`}
-          />
+          <Settings className={"h-6 w-6"} />
         </Link>
         <div className="mr-5 ml-2 hidden min-h-[2em] w-[0.1rem] bg-gray-200 md:inline-block"></div>
       </div>
