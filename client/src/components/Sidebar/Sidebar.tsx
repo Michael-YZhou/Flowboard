@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { LockIcon } from "lucide-react";
+import { Home, LockIcon } from "lucide-react";
+import SidebarLink from "./SidebarLink/SidebarLink";
 
 const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(true);
@@ -10,7 +11,7 @@ const Sidebar = () => {
 
   return (
     <div className="dark:bg-dark-black fixed z-40 flex h-full w-64 flex-col justify-between overflow-y-auto bg-white shadow-xl transition-all duration-300">
-      <div className="flex h-full w-full flex-col justify-start">
+      <div className="flex h-full w-full flex-col justify-start dark:bg-black">
         {/* TOP LOGO */}
         <div className="z-50 flex min-h-[56px] w-64 items-center justify-between bg-white px-6 pt-3 dark:bg-black">
           <div className="text-xl font-bold text-gray-800 dark:text-white">
@@ -32,6 +33,10 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
+        {/* NAVBAR LINKS */}
+        <nav className="z-10 w-full">
+          <SidebarLink href="/" icon={Home} label="Home" />
+        </nav>
       </div>
     </div>
   );
