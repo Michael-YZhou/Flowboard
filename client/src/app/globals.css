@@ -44,6 +44,7 @@ body,
   height: 100%;
   width: 100%;
   /* v4 still supports @apply */
+  /* make sure the bg is white and text is sm across all the pages even though some pages are not existing yet*/
   @apply bg-white text-sm dark:bg-black;
 }
 
