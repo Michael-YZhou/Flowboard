@@ -10,7 +10,7 @@ type Props = {
 };
 
 const SidebarLink = ({ href, icon: Icon, label }: Props) => {
-  const pathname = usePathname();
+  const pathname = usePathname(); // this is the current pathname of the page
   const isActive =
     pathname === href || (pathname === "/" && href === "/dashboard");
 
