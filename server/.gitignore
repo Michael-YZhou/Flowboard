@@ -1,5 +1,57 @@
-node_modules
-# Keep environment variables out of version control
-.env
+# Node modules
+node_modules/
 
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+*.lcov
+
+# TypeScript build output
+dist/
+build/
+out/
+tsconfig.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Prisma
+.prisma/
+prisma/migrations/
 /generated/prisma
+
+# Database
+*.sqlite
+*.db
+*.db-journal
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+
+# Optional caches
+.npm
+.eslintcache
+.cache
+.next
