@@ -38,7 +38,7 @@
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
-    // "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false, // allow module syntax in import statements, even when using commonjs
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
