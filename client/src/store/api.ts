@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { fetchAuthSession, getCurrentUser } from "@aws-amplify/auth";
 
+/* Types for the API */
 export interface Project {
   id: number;
   name: string;
@@ -55,6 +56,7 @@ export interface Task {
   authorUserId?: number;
   assignedUserId?: number;
 
+  // data not included in the Task model but are grabbed by Prisma from the relation models.
   author?: User;
   assignee?: User;
   comments?: Comment[];
@@ -121,6 +123,9 @@ export const api = createApi({
     }),
     getTasks: build.query<Task[], { projectId: number }>({
       query: ({ projectId }) => `tasks?projectId=${projectId}`,
+      // ensures that each task in the fetched list is tracked in the cache by its own tag (Tasks:id)
+      // and that a fallback Tasks tag exists to track all tasks in this list.
+      // [{ type: "Tasks", id: 1 }, { type: "Tasks", id: 2 }] OR [{ type: "Tasks" }]
       providesTags: (result) =>
         result
           ? result.map(({ id }) => ({ type: "Tasks" as const, id }))
