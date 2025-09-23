@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import React, { useState } from "react";
-import ProjectHeader from "@/components/ProjectHeader/ProjectHeader";
+import ProjectHeader from "@/app/projects/ProjectHeader/ProjectHeader";
 
 const Project = () => {
   const { id } = useParams();
