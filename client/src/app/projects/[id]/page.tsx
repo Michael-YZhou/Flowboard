@@ -7,6 +7,7 @@ import ProjectHeader from "@/components/ProjectHeader/ProjectHeader";
 const Project = () => {
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState<string>("Board");
+
   return (
     <div>
       <ProjectHeader activeTab={activeTab} setActiveTab={setActiveTab} />
