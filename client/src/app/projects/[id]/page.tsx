@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import ProjectHeader from "@/app/projects/ProjectHeader/ProjectHeader";
-import Board from "@/app/projects/BoardView/Board";
+import Board from "@/app/projects/Board/Board";
 
 const Project = () => {
   const { id } = useParams();
