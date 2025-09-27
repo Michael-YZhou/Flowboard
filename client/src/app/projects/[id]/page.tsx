@@ -24,7 +24,12 @@ const Project = () => {
       {activeTab === "List" && (
         <List id={id as string} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
       )}
-      {activeTab === "Timeline" && <Timeline id={id as string} />}
+      {activeTab === "Timeline" && (
+        <Timeline
+          id={id as string}
+          setIsModalNewTaskOpen={setIsModalNewTaskOpen}
+        />
+      )}
     </div>
   );
 };
