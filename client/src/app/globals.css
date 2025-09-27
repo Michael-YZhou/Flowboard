@@ -48,8 +48,8 @@ body,
   @apply bg-white text-sm dark:bg-black;
 }
 
-/* TIMELINE STYLING */
-/* Uses your token names directly (e.g., bg-dark-secondary) and arbitrary colors stay valid */
+/* GANT CHART TIMELINE STYLING */
+/* Uses Tailwind tokens directly in CSS selectors with @apply (e.g., bg-dark-secondary) */
 .timeline ._3_ygE {
   @apply dark:border-stroke-dark rounded-tl-md border border-r-0 border-[#e6e4e4];
 }
