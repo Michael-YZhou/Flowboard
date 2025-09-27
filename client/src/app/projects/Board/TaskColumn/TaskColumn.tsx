@@ -1,7 +1,7 @@
-import type { Task as TaskType } from "@/store/types";
 import { useDrop } from "react-dnd";
 import { EllipsisVertical, Plus } from "lucide-react";
-import { Task } from "@/app/projects/Board/Task/Task";
+import type { Task as TaskType } from "@/store/types";
+import Task from "@/app/projects/Board/Task/Task";
 
 type Props = {
   status: string;

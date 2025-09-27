@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import ProjectHeader from "@/app/projects/ProjectHeader/ProjectHeader";
-import Board from "@/app/projects/Board/Board";
+import Board from "../Board/Board";
+import List from "../List/List";
+import Timeline from "../Timeline/Timeline";
 
 const Project = () => {
   const { id } = useParams();
@@ -19,6 +21,10 @@ const Project = () => {
           setIsModalNewTaskOpen={setIsModalNewTaskOpen}
         />
       )}
+      {activeTab === "List" && (
+        <List id={id as string} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
+      )}
+      {activeTab === "Timeline" && <Timeline id={id as string} />}
     </div>
   );
 };

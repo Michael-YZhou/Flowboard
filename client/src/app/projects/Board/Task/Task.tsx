@@ -8,7 +8,7 @@ type Props = {
   task: TaskType;
 };
 
-export const Task = ({ task }: Props) => {
+const Task = ({ task }: Props) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "task",
     item: { id: task.id },
@@ -144,3 +144,5 @@ export const Task = ({ task }: Props) => {
     </div>
   );
 };
+
+export default Task;
