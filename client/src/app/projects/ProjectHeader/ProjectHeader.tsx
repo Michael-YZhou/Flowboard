@@ -1,6 +1,15 @@
 import { useState } from "react";
-import { Clock, Filter, Grid3x3, List, Share2, Table } from "lucide-react";
+import {
+  Clock,
+  Filter,
+  Grid3x3,
+  List,
+  PlusSquare,
+  Share2,
+  Table,
+} from "lucide-react";
 import Header from "@/components/Header/Header";
+import ModalNewBoard from "@/components/ModalNewBoard/ModalNewBoard";
 
 type Props = {
   activeTab: string;
@@ -12,10 +21,24 @@ const ProjectHeader = ({ activeTab, setActiveTab }: Props) => {
 
   return (
     <div className="px-4 xl:px-6">
-      {/* NODAL NEW PROJECT */}
-      <div className="py-6 lg:pt-8 lg:pb-4">
-        <Header name="Product Design Development" />
-      </div>
+      {/* MODAL NEW PROJECT */}
+      <ModalNewBoard
+        isOpen={isModalNewProjectOpen}
+        onClose={() => setIsModalNewProjectOpen(false)}
+      />
+
+      {/* HEADER */}
+      <Header
+        name="Product Design Development"
+        buttonComponent={
+          <button
+            className="bg-blue-primary flex items-center rounded-md px-3 py-2 text-white hover:bg-blue-600"
+            onClick={() => setIsModalNewProjectOpen(true)}
+          >
+            <PlusSquare className="mr-2 h-5 w-5" /> New Boards
+          </button>
+        }
+      />
 
       {/* TABS */}
       <div className="dark:border-stroke-dark flex flex-wrap-reverse gap-2 border-y border-gray-200 pt-2 pb-[8px] md:items-center">
