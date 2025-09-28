@@ -9,6 +9,7 @@ import {
   Table,
 } from "lucide-react";
 import Header from "@/components/Header/Header";
+import ModalNewBoard from "@/components/ModalNewBoard/ModalNewBoard";
 
 type Props = {
   activeTab: string;
@@ -21,7 +22,7 @@ const ProjectHeader = ({ activeTab, setActiveTab }: Props) => {
   return (
     <div className="px-4 xl:px-6">
       {/* MODAL NEW PROJECT */}
-      <ModalNewProject
+      <ModalNewBoard
         isOpen={isModalNewProjectOpen}
         onClose={() => setIsModalNewProjectOpen(false)}
       />
