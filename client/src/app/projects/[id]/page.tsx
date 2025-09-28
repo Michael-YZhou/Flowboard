@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import ProjectHeader from "@/app/projects/ProjectHeader/ProjectHeader";
-import Board from "../Board/Board";
-import List from "../List/List";
-import Timeline from "../Timeline/Timeline";
+import BoardView from "../BoardView/BoardView";
+import ListView from "../ListView/ListView";
+import TimelineView from "../TimelineView/TimelineView";
+import TableView from "../TableView/TableView";
 
 const Project = () => {
   const { id } = useParams();
@@ -16,16 +17,25 @@ const Project = () => {
     <div>
       <ProjectHeader activeTab={activeTab} setActiveTab={setActiveTab} />
       {activeTab === "Board" && (
-        <Board
+        <BoardView
           id={id as string}
           setIsModalNewTaskOpen={setIsModalNewTaskOpen}
         />
       )}
       {activeTab === "List" && (
-        <List id={id as string} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
+        <ListView
+          id={id as string}
+          setIsModalNewTaskOpen={setIsModalNewTaskOpen}
+        />
       )}
       {activeTab === "Timeline" && (
-        <Timeline
+        <TimelineView
+          id={id as string}
+          setIsModalNewTaskOpen={setIsModalNewTaskOpen}
+        />
+      )}
+      {activeTab === "Table" && (
+        <TableView
           id={id as string}
           setIsModalNewTaskOpen={setIsModalNewTaskOpen}
         />
