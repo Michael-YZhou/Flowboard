@@ -11,7 +11,7 @@ type Props = {
 
 const taskStatus = ["To Do", "Work In Progress", "Under Review", "Completed"];
 
-const Board = ({ id, setIsModalNewTaskOpen }: Props) => {
+const BoardView = ({ id, setIsModalNewTaskOpen }: Props) => {
   // Get tasks for a specific project board from the API
   const {
     data: tasks,
@@ -48,4 +48,4 @@ const Board = ({ id, setIsModalNewTaskOpen }: Props) => {
   );
 };
 
-export default Board;
+export default BoardView;
