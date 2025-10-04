@@ -18,13 +18,15 @@ const Search = () => {
     skip: searchTerm.length < 3,
   });
 
+  // Debounce the search to avoid making requests for every keystroke
   const handleSearch = debounce(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setSearchTerm(event.target.value);
     },
-    500,
+    500, // 500ms debounce time
   );
 
+  // Cancel the debounce when the component unmounts
   useEffect(() => {
     return handleSearch.cancel;
   }, [handleSearch.cancel]);
