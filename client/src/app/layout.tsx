@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Flowboard",
   description: "A modern project management tool inspired by Trello.",
   icons: {
-    icon: "/images/favicon.ico",
+    icon: "/images/favicon.png",
   },
 };
 
