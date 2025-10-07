@@ -21,6 +21,7 @@ import Header from "@/components/Header/Header";
 import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
 import { Priority, Project, Task } from "@/store/types";
 
+// define columns for the MUI DataGrid for the tasks
 const taskColumns: GridColDef[] = [
   { field: "title", headerName: "Title", width: 200 },
   { field: "status", headerName: "Status", width: 150 },
@@ -31,19 +32,24 @@ const taskColumns: GridColDef[] = [
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const HomePage = () => {
+  // get the tasks for the project (default to task id 1)
   const {
     data: tasks,
     isLoading: tasksLoading,
     isError: tasksError,
   } = useGetTasksQuery({ projectId: parseInt("1") });
+
+  // get the projects
   const { data: projects, isLoading: isProjectsLoading } =
     useGetProjectsQuery();
 
+  // get the dark mode
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   if (tasksLoading || isProjectsLoading) return <div>Loading..</div>;
   if (tasksError || !tasks || !projects) return <div>Error fetching data</div>;
 
+  // calculate the priority count for the tasks
   const priorityCount = tasks.reduce(
     (acc: Record<string, number>, task: Task) => {
       const { priority } = task;
@@ -53,11 +59,13 @@ const HomePage = () => {
     {},
   );
 
+  // map the priority count to the task distribution
   const taskDistribution = Object.keys(priorityCount).map((key) => ({
     name: key,
     count: priorityCount[key],
   }));
 
+  // calculate the status count for the projects
   const statusCount = projects.reduce(
     (acc: Record<string, number>, project: Project) => {
       const status = project.endDate ? "Completed" : "Active";
@@ -67,6 +75,7 @@ const HomePage = () => {
     {},
   );
 
+  // map the status count to the project status
   const projectStatus = Object.keys(statusCount).map((key) => ({
     name: key,
     count: statusCount[key],
@@ -87,7 +96,7 @@ const HomePage = () => {
       };
 
   return (
-    <div className="container h-full w-[100%] bg-gray-100 bg-transparent p-8">
+    <div className="container h-full w-[100%] bg-transparent p-8">
       <Header name="Project Management Dashboard" />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="dark:bg-dark-secondary rounded-lg bg-white p-4 shadow">
