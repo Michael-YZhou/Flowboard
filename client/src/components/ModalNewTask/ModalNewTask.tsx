@@ -24,6 +24,7 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
   const [projectId, setProjectId] = useState("");
 
   const handleSubmit = async () => {
+    // make sure title and authorUserId are not empty and either id or projectId is not null
     if (!title || !authorUserId || !(id !== null || projectId)) return;
 
     const formattedStartDate = formatISO(new Date(startDate), {
@@ -48,6 +49,7 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
   };
 
   const isFormValid = () => {
+    // make sure title and authorUserId are not empty and either id or projectId is not null
     return title && authorUserId && !(id !== null || projectId);
   };
 
