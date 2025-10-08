@@ -74,8 +74,11 @@ const ReusablePriorityPage = ({ priority }: Props) => {
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
 
   // get the ID of the current user from the auth user query
-  const { data: currentUser } = useGetAuthUserQuery({});
-  const userId = currentUser?.userDetails?.userId ?? null;
+  // const { data: currentUser } = useGetAuthUserQuery({});
+  // const userId = currentUser?.userDetails?.userId ?? null;
+
+  // for now, use a static userId
+  const userId = 1;
 
   // get the tasks for the current user
   // skip if the getAuthUserQuery is not finished or the user is not found
