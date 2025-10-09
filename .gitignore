@@ -1,0 +1,144 @@
+# =====================================
+# Node Modules (Frontend + Backend)
+# =====================================
+node_modules/
+**/node_modules/
+
+# =====================================
+# Build / Output
+# =====================================
+# Next.js & frontend builds
+.next/
+.out/
+.turbo/
+.vercel/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+frontend/.vercel/
+
+# Express / backend builds
+dist/
+build/
+out/
+backend/dist/
+backend/build/
+backend/out/
+
+# Optional framework caches
+.tailwindcache/
+.mui-cache/
+.cache/
+.tmp/
+temp/
+
+# =====================================
+# Dependencies & Package Managers
+# =====================================
+.pnp/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+.npm/
+.eslintcache
+
+# =====================================
+# TypeScript
+# =====================================
+*.tsbuildinfo
+# keep next-env.d.ts for Next.js
+# next-env.d.ts
+
+# =====================================
+# Environment Files
+# =====================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/.env
+**/.env.*
+
+# =====================================
+# Prisma & Databases
+# =====================================
+.prisma/
+generated/
+# Keep actual migration SQL files
+!prisma/migrations/
+# Local dev DBs
+*.sqlite
+*.db
+*.db-journal
+
+# =====================================
+# Testing / Coverage
+# =====================================
+coverage/
+*.lcov
+test-results/
+jest-html-reporters-*/
+
+# =====================================
+# Logs
+# =====================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =====================================
+# OS Files
+# =====================================
+.DS_Store
+Thumbs.db
+
+# =====================================
+# IDE / Editor
+# =====================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# =====================================
+# Misc
+# =====================================
+*.pem
+*.pid
+*.pid.lock
+*.seed
+*.tmp
+*.bak
+*.local
+
+# =====================================
+# Docker (if used)
+# =====================================
+docker-compose.override.yml
+*.env.docker
+docker-data/
+.dockerignore
+
+# =====================================
+# Vercel / Deployment
+# =====================================
+.vercel/
+frontend/.vercel/
+out/
+build/
+
+# =====================================
+# Temporary Files
+# =====================================
+temp/
+tmp/
