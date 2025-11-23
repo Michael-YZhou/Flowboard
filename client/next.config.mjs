@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "flowboard-s3-bucket.s3.ap-southeast-2.amazonaws.com",
+        hostname: "flowboard-s3-bucket.s3-ap-southeast-2.amazonaws.com",
         port: "",
         pathname: "/**",
       },
